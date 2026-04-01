@@ -203,7 +203,7 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {['/images/work-video.mp4', '/images/canopy1.jpg', '/images/canopy2.jpg', '/images/canopy3.jpg',
+            {['/images/cano.mp4', '/images/canopy1.jpg', '/images/canopy2.jpg', '/images/canopy3.jpg',
               '/images/canopy4.jpg', '/images/canopy5.jpg', '/images/canopy6.jpg',
               '/images/canopy8.jpg', '/images/canopy9.jpg','/images/canopy10.jpg',
               '/images/canopy11.jpg', '/images/canopy12.jpg','/images/canopy13.jpg',
