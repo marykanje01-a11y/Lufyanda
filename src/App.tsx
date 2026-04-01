@@ -353,7 +353,7 @@ function App() {
 
             <div className="flex space-x-6">
               <a
-                href="https://wa.me/27662222656"
+                href="https://wa.me/27677778179"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg transition-all transform hover:scale-105"
