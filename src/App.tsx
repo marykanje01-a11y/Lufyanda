@@ -50,12 +50,12 @@ function App() {
               <span className="text-xl font-bold text-gray-900">Lufyanda Electrical Projects</span>
             </div>
 
-            <div className="hidden md:flex space-x-8">
+            <div className="flex space-x-3 sm:space-x-8">
               {['Home', 'Services', 'About', 'Gallery', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-xs sm:text-sm font-medium transition-colors ${
                     activeSection === item.toLowerCase()
                       ? 'text-green-600'
                       : 'text-gray-700 hover:text-green-600'
@@ -64,15 +64,6 @@ function App() {
                   {item}
                 </button>
               ))}
-            </div>
-
-            <div className="md:hidden">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-green-600 hover:text-green-700"
-              >
-                <Phone className="h-6 w-6" />
-              </button>
             </div>
           </div>
         </nav>
@@ -212,20 +203,31 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {['/images/canopy1.jpg', '/images/canopy2.jpg', '/images/canopy3.jpg',
+            {['/images/work-video.mp4', '/images/canopy1.jpg', '/images/canopy2.jpg', '/images/canopy3.jpg',
               '/images/canopy4.jpg', '/images/canopy5.jpg', '/images/canopy6.jpg',
               '/images/canopy8.jpg', '/images/canopy9.jpg','/images/canopy10.jpg',
               '/images/canopy11.jpg', '/images/canopy12.jpg','/images/canopy13.jpg',
-               '/images/canopy14.jpg', '/images/canopy15.jpg'].map((img, index) => (
+               '/images/canopy14.jpg', '/images/canopy15.jpg'].map((media, index) => (
               <div
                 key={index}
                 className="relative overflow-hidden rounded-lg shadow-lg group h-64"
               >
-                <img
-                  src={img}
-                  alt={`Project ${index + 1}`}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                />
+                {index === 0 ? (
+                  <video
+                    src={media}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                  />
+                ) : (
+                  <img
+                    src={media}
+                    alt={`Project ${index}`}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                  />
+                )}
               </div>
             ))}
           </div>
