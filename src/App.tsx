@@ -47,7 +47,7 @@ function App() {
                 alt="Lufyanda Logo"
                 className="h-14 w-14 rounded-full object-cover ring-2 ring-green-500"
               />
-              <span className="text-xl font-bold text-gray-900">Lufyanda Electrical Projects</span>
+              <span className="text-xl font-bold text-gray-900"> </span>
             </div>
 
             <div className="hidden md:flex space-x-8">
