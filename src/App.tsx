@@ -290,7 +290,11 @@ function App() {
                              transition-all duration-300 group"
                   aria-label="Follow us on Facebook"
                 >
-                  <Facebook className="w-6 h-6 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/images/facebook1.png"
+                    alt="Facebook"
+                    className="w-9 h-9 group-hover:scale-110 transition-transform"
+                  />
                 </a>
               </div>
             </div>
