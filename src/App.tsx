@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Facebook, MessageCircle, Zap, Wrench, Building2, Tent, Sun } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    emailjs.init('NW5AEl_6LW0VcR6ZG');
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +38,29 @@ function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    emailjs.send(
+      'service_q1z88s7',
+      'template_ax5pg1d',
+      {
+        from_name: name,
+        from_email: email,
+        message: message,
+      }
+    )
+    .then(() => {
+      alert('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    })
+    .catch(() => {
+      alert('Failed to send message.');
+    });
   };
 
   return (
@@ -300,7 +331,7 @@ function App() {
             </div>
 
             <div>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name
@@ -308,8 +339,11 @@ function App() {
                   <input
                     type="text"
                     id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     placeholder="Your name"
+                    required
                   />
                 </div>
 
@@ -320,8 +354,11 @@ function App() {
                   <input
                     type="email"
                     id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     placeholder="your@email.com"
+                    required
                   />
                 </div>
 
@@ -332,8 +369,11 @@ function App() {
                   <textarea
                     id="message"
                     rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     placeholder="How can we help you?"
+                    required
                   ></textarea>
                 </div>
 
